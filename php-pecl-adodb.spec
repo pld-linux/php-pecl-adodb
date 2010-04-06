@@ -16,6 +16,7 @@ URL:		http://pecl.php.net/package/Modname/
 BuildRequires:	php-devel >= 3:5.0.0
 BuildRequires:	rpmbuild(macros) >= 1.519
 BuildRequires:	sed >= 4.0
+BuildRequires:	unzip
 %{?requires_php_extension}
 Requires:	php-common >= 4:5.0.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)

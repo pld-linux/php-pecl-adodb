@@ -1,7 +1,3 @@
-#
-# Conditional build:
-%bcond_without	tests		# build without tests
-
 %define		modname	adodb
 %define		ver		%(echo %{version} | tr -d .)
 Summary:	ADOdb PHP extension

@@ -8,9 +8,9 @@ License:	BSD
 Group:		Development/Languages/PHP
 Source0:	http://phplens.com/lens/dl/adodb-ext-%{ver}.zip
 # Source0-md5:	4efb3fc1f5a347f20be9222885779688
-URL:		http://pecl.php.net/package/Modname/
+URL:		http://adodb.sourceforge.net/
 BuildRequires:	php-devel >= 3:5.0.0
-BuildRequires:	rpmbuild(macros) >= 1.519
+BuildRequires:	rpmbuild(macros) >= 1.553
 BuildRequires:	sed >= 4.0
 BuildRequires:	unzip
 %{?requires_php_extension}
@@ -25,8 +25,7 @@ installed and use it automatically.
 %prep
 %setup -q -c
 mv %{modname}-%{ver}/* .
-
-%{__sed} -i -e 's,\r$,,' README.txt
+%undos README.txt
 
 %build
 phpize
@@ -38,8 +37,9 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{php_sysconfdir}/conf.d,%{php_extensiondir}}
 
 %{__make} install \
-	INSTALL_ROOT=$RPM_BUILD_ROOT \
-	EXTENSION_DIR=%{php_extensiondir}
+	EXTENSION_DIR=%{php_extensiondir} \
+	INSTALL_ROOT=$RPM_BUILD_ROOT
+
 cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{modname}.ini
 ; Enable %{modname} extension module
 extension=%{modname}.so

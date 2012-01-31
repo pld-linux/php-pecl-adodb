@@ -3,7 +3,7 @@
 Summary:	ADOdb PHP extension
 Name:		php-pecl-%{modname}
 Version:	5.0.4
-Release:	1
+Release:	2
 License:	BSD
 Group:		Development/Languages/PHP
 Source0:	http://phplens.com/lens/dl/adodb-ext-%{ver}.zip

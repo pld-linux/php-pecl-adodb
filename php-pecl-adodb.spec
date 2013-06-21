@@ -1,7 +1,8 @@
+%define		php_name	php%{?php_suffix}
 %define		modname	adodb
 %define		ver		%(echo %{version} | tr -d .)
 Summary:	ADOdb PHP extension
-Name:		php-pecl-%{modname}
+Name:		%{php_name}-pecl-%{modname}
 Version:	5.0.4
 Release:	3
 License:	BSD
@@ -10,8 +11,8 @@ Source0:	http://phplens.com/lens/dl/adodb-ext-%{ver}.zip
 # Source0-md5:	4efb3fc1f5a347f20be9222885779688
 Patch0:		php53.patch
 URL:		http://adodb.sourceforge.net/
-BuildRequires:	php-devel >= 3:5.0.0
-BuildRequires:	rpmbuild(macros) >= 1.553
+BuildRequires:	%{php_name}-devel >= 3:5.0.0
+BuildRequires:	rpmbuild(macros) >= 1.650
 BuildRequires:	sed >= 4.0
 BuildRequires:	unzip
 %{?requires_php_extension}
@@ -24,7 +25,7 @@ ADOdb with C code. ADOdb will auto-detect if this extension is
 installed and use it automatically.
 
 %prep
-%setup -q -c
+%setup -qc
 mv %{modname}-%{ver}/* .
 %undos -f c,txt
 %patch0 -p1

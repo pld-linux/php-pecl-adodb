@@ -4,7 +4,7 @@
 Summary:	ADOdb PHP extension
 Name:		%{php_name}-pecl-%{modname}
 Version:	5.0.4
-Release:	3
+Release:	4
 License:	BSD
 Group:		Development/Languages/PHP
 Source0:	http://phplens.com/lens/dl/adodb-ext-%{ver}.zip
@@ -17,6 +17,7 @@ BuildRequires:	sed >= 4.0
 BuildRequires:	unzip
 %{?requires_php_extension}
 Requires:	php(core) >= 5.0.4
+Provides:	php(%{modname}) = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
